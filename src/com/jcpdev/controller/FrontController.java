@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jcpdev.controller.action.Action;
+import com.jcpdev.controller.action.InsertAction;
 import com.jcpdev.controller.action.ListAction;
 
 @WebServlet("*.do")
@@ -36,6 +37,7 @@ public class FrontController extends HttpServlet {
 		String spath = request.getServletPath();
 		boolean isRedirect = false;
 		String path="home.jsp";
+		String url = "./"; //또는 reequest.
 		
 		if(spath.equals("/list.do")) {
 			Action action = new ListAction();
@@ -47,11 +49,17 @@ public class FrontController extends HttpServlet {
 			
 		}else if(spath.equals("/login.do")) {
 			path = "login.jsp";
+		}else if(spath.equals("/save.do")) {
+			Action action = new InsertAction();
+			isRedirect = action.execute(request, response);
+			url ="list.do";
 		}
 		
 		if(!isRedirect) {
 			RequestDispatcher rd = request.getRequestDispatcher(path);
 			rd.forward(request, response);
+		}else {
+			response.sendRedirect(url);
 		}
 		
 		
