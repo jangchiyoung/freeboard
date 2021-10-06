@@ -9,7 +9,7 @@ import com.jcpdev.dto.Freeboard;
 public class InsertAction implements Action {
 
 	
-	public boolean execute(HttpServletRequest request, HttpServletResponse response)
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response)
 			throws javax.servlet.ServletException ,java.io.IOException {
 
 		//테이블 insert 
@@ -29,8 +29,9 @@ public class InsertAction implements Action {
 		FreeboardDao dao = FreeboardDao.getInstance();
 		dao.insert(dto);
 //		response.sendRedirect("listAction.jsp");
-		
-		boolean isRedirect = true;
-		return isRedirect;
+		ActionForward foward = new ActionForward();
+		foward.isRedirect = true;
+		foward.url="list.do";
+		return foward;
 	};
 }
