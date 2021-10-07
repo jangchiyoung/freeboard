@@ -13,8 +13,11 @@ function post_data() {
 }
 </script>
 <link rel="stylesheet" href="css/temp.css?v=3">
+<link rel="stylesheet" href="css/flexbox2.css?v=3"><!-- url기준 -->
 </head>
 <body>
+<%@ include file="../top.jsp" %>
+<section>
  <c:if test="${sessionScope.user==null }">
 	<script type="text/javascript">
 		alert('글쓰기는 로그인을 해야합니다.');
@@ -50,5 +53,7 @@ function post_data() {
  	</td></tr>
  </table>
  </form>
+ </section>
+ <%@ include file="../bottom.jsp" %>
 </body>
 </html>

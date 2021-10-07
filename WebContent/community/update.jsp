@@ -11,8 +11,11 @@ function post_data() {
 }
 </script>
 <link rel="stylesheet" href="css/temp.css?v=3">
+<link rel="stylesheet" href="css/flexbox2.css?v=3"><!-- url기준 -->
 </head>
 <body>
+ <%@ include file="../top.jsp" %>
+<section>
 <h3>동아리 커뮤니티 글 수정</h3>
 <hr>
 <form name="frm1" method="post" action="modify.do?page=${page }">
@@ -39,5 +42,7 @@ function post_data() {
  	</td></tr>
  </table>
  </form>
+ </section>
+  <%@ include file="../bottom.jsp" %>
 </body>
 </html>

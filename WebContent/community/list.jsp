@@ -9,8 +9,11 @@
 <title>동아리 커뮤니티</title>
 <!-- url 현재 경로가 freeboard 입니다.community 가 아닙니다. -->
 <link rel="stylesheet" href="css/boardlist.css?v=3"><!-- url기준 -->
+<link rel="stylesheet" href="css/flexbox2.css?v=3"><!-- url기준 -->
 </head>
 <body>
+<%@ include file="../top.jsp" %> <!-- ../는 현재위치에서 한단계 위 상위폴더 -->
+<section>
 <h3>동아리 커뮤니티</h3>
 <hr>
 <div style="margin:auto;">
@@ -78,8 +81,9 @@
 		<a class="pagenum" href="?page=${pageDto.totalPage }">&gt;&gt;</a>  <!-- 마지막페이지  -->
 	</c:if>
 </div>	
-	
 </div>
+</section>
+<%@ include file="../bottom.jsp" %>
 </body>
 </html>
 
